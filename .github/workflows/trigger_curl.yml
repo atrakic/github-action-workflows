@@ -1,0 +1,13 @@
+name: trigger-curl
+
+on:
+  workflow_dispatch:
+
+jobs:
+  trigger-curl-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Trigger a webhook event
+        run: scripts/on-demand-test-event.sh ${{ secrets.GITHUB_TOKEN }} atrakic github-actions-workflows 
