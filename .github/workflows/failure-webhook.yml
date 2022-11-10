@@ -16,11 +16,11 @@ jobs:
           MESSAGE: ${{ github.event.client_payload.message }}
         run: echo $MESSAGE
 
-  echo_repository_dispatch_job:
+  echo_json_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Dump github context
-        run: echo "$GITHUB_CONTEXT"
+      - name: Dump json
+        run: echo "$JSON_DATA"
         shell: bash
         env:
-          GITHUB_CONTEXT: ${{ toJson(repository_dispatch) }}
+          JSON_DATA: ${{ toJson(repository_dispatch) }}
