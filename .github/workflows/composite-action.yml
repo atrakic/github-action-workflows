@@ -16,8 +16,8 @@ jobs:
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
 
-  #gh-debug:
-  #  #if: github.ref != 'refs/heads/main'
-  #  uses: ./.github/workflows/gh-debug.yml
-  #  needs:
-  #    - composite_job
+  gh-debug:
+    if: github.ref != 'refs/heads/main'
+    uses: ./.github/workflows/gh-debug.yml
+    needs:
+      - composite_job
