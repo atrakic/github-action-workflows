@@ -1,9 +1,9 @@
+# https://raw.githubusercontent.com/brennerm/github-actions-pr-close-showcase/master/.github/workflows/pr-close.yml
 name: Close PR
 
 on:
-  workflow_dispatch:
   pull_request:
-    types: 
+    types:
       - closed
 
 jobs:
