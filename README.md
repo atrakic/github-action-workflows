@@ -36,6 +36,15 @@ The workflow is located in [.github/workflows/docker_action.yml](.github/workflo
 If there are issues that are have not been resolved and have been open for a long time they will be marked as stale and eventually closed automatically.
 The workflow is located in [.github/workflows/stale.yml](.github/workflows/stale.yml).
 
+
+### Dispatch event
+[![dispatch-event](https://github.com/atrakic/github-action-workflows/actions/workflows/failure-webhook.yml/badge.svg)](https://github.com/atrakic/github-action-workflows/actions/workflows/failure-webhook.yml)
+
+Example how to use webhooks with dispatch event:
+- Sender with helper script - [.github/workflows/trigger_curl.yml](.github/workflows/trigger_curl.yml)
+- Receiver - [.github/workflows/failure-webhook.yml](.github/workflows/failure-webhook.yml)
+
+
 ## Contributing
 
 1. Fork the repository

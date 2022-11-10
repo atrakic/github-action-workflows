@@ -10,4 +10,4 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Trigger a webhook event
-        run: scripts/on-demand-test-event.sh ${{ secrets.GITHUB_TOKEN }} atrakic github-actions-workflows 
+        run: scripts/generate-test-event.sh ${{ secrets.GITHUB_TOKEN }} ${{ github.repository_owner }} github-action-workflows
