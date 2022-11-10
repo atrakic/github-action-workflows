@@ -1,0 +1,10 @@
+name: gh-debug
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  gh-debug:
+    if: github.ref != 'refs/heads/main'
+    uses: ./debug/gh-debug.yaml
