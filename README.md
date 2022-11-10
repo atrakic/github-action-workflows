@@ -20,6 +20,13 @@ The workflow is located in [.github/workflows/composite-action.yml](.github/work
 Greet someone from docker container, as explained https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action.
 The workflow is located in [.github/workflows/docker_action.yml](.github/workflows/docker_action.yml).
 
+
+### Stale issues
+[![stalle-issues](https://github.com/atrakic/github-action-workflows/actions/workflows/stale.yml/badge.svg)](https://github.com/atrakic/github-action-workflows/actions/workflows/stale.yml)
+
+If there are issues that are have not been resolved and have been open for a long time they will be marked as stale and eventually closed automatically. 
+The workflow is located in [.github/workflows/stale.yml](.github/workflows/stale.yml).
+
 ## Contributing
 
 1. Fork the repository

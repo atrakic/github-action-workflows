@@ -2,9 +2,14 @@ name: gh-debug
 
 on:
   workflow_call:
-  push:
+  workflow_dispatch:
 
 jobs:
   gh-debug:
-    if: github.ref != 'refs/heads/main'
-    uses: ./debug/gh-debug.yaml
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump github context
+        run: echo "$GITHUB_CONTEXT"
+        shell: bash
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}    
