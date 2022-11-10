@@ -1,7 +1,7 @@
 # https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event
 # Note: This event will only trigger a workflow run if the workflow file is on the default branch.
 
-name: failure-webhook
+name: Failure webhook
 
 on:
   repository_dispatch:
@@ -16,5 +16,11 @@ jobs:
           MESSAGE: ${{ github.event.client_payload.message }}
         run: echo $MESSAGE
 
-  gh-debug:
-    uses: ./.github/workflows/gh-debug.yml
+  echo_json_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump json
+        run: echo "$JSON_DATA"
+        shell: bash
+        env:
+          JSON_DATA: ${{ toJson(repository_dispatch) }}

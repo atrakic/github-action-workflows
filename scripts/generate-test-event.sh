@@ -7,17 +7,24 @@ TOKEN=$1
 OWNER=$2
 REPO=$3
 
+MESSAGE="Error: $RANDOM timeout"
+HOSTNAME=$(hostname)
+REQUEST_BODY="$(echo {} | jq \
+  --arg hostname "$HOSTNAME" \
+  --arg message "$MESSAGE" \
+  '. + {
+        "event_type":"test_result",
+        "client_payload":
+        {
+        "passed":false,
+        "hostname": $hostname,
+        "message": $message
+       }}'
+)"
+
 curl \
   -X POST \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer ${TOKEN}" \
   https://api.github.com/repos/"${OWNER}"/"${REPO}"/dispatches \
-  -d "{
-    'event_type':'test_result',
-    'client_payload':
-      {
-        'passed':false,
-        'hostname':'$(hostname)',
-        'message': 'Error: $RANDOM timeout'
-      }
-    }"
+  -d "$REQUEST_BODY"
