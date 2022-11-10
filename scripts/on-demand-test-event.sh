@@ -7,7 +7,7 @@ TOKEN=$1
 OWNER=$2
 REPO=$3
 
-curl \
+curl -s\
   -X POST \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer ${TOKEN}" \
