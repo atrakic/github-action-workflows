@@ -21,6 +21,9 @@ Greet someone from docker container, as explained https://docs.github.com/en/act
 The workflow is located in [.github/workflows/docker_action.yml](.github/workflows/docker_action.yml).
 
 
+### Create issue
+[![create_issue](https://github.com/atrakic/github-action-workflows/actions/workflows/create_issue.yml/badge.svg)](https://github.com/atrakic/github-action-workflows/actions/workflows/create_issue.yml)
+
 ### Stale issues
 [![stalle-issues](https://github.com/atrakic/github-action-workflows/actions/workflows/stale.yml/badge.svg)](https://github.com/atrakic/github-action-workflows/actions/workflows/stale.yml)
 
