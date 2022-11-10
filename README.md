@@ -1,5 +1,11 @@
 # github-action-workflows
-This repository holds my collection for testing different GitHub Actions workflows. 
+This repository holds my collection for testing different GitHub Actions workflows.
+
+### Close PR
+[![close-pr](https://github.com/atrakic/github-action-workflows/actions/workflows/pr-close.yml/badge.svg)](https://github.com/atrakic/github-action-workflows/actions/workflows/pr-close.yml)
+
+Run workflow when a PR has been closed (merged or not).
+The workflow is located in [.github/workflows/pr-close.yml](.github/workflows/pr-close.yml).
 
 ### Validate PR
 [![validate-pr](https://github.com/atrakic/github-action-workflows/actions/workflows/validate-pr.yml/badge.svg)](https://github.com/atrakic/github-action-workflows/actions/workflows/validate-pr.yml)
@@ -27,7 +33,7 @@ The workflow is located in [.github/workflows/docker_action.yml](.github/workflo
 ### Stale issues
 [![stalle-issues](https://github.com/atrakic/github-action-workflows/actions/workflows/stale.yml/badge.svg)](https://github.com/atrakic/github-action-workflows/actions/workflows/stale.yml)
 
-If there are issues that are have not been resolved and have been open for a long time they will be marked as stale and eventually closed automatically. 
+If there are issues that are have not been resolved and have been open for a long time they will be marked as stale and eventually closed automatically.
 The workflow is located in [.github/workflows/stale.yml](.github/workflows/stale.yml).
 
 ## Contributing
