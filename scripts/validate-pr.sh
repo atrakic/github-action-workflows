@@ -4,7 +4,7 @@ set -euo pipefail
 main() {
     local allowed=100
     local changed
-    changed=$(git show --name-only --oneline HEAD)
+    changed=$(git --no-pager diff --name-only FETCH_HEAD...main)
 
     if [[ -z "$changed" ]]; then
         exit 0
