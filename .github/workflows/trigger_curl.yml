@@ -1,4 +1,4 @@
-name: trigger-curl
+name: Trigger webHook
 
 on:
   workflow_dispatch:

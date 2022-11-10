@@ -7,17 +7,14 @@ TOKEN=$1
 OWNER=$2
 REPO=$3
 
-MESSAGE="Error: $RANDOM timeout"
-HOSTNAME=$(hostname)
+MESSAGE="Error: $$ timeout"
 REQUEST_BODY="$(echo {} | jq \
-  --arg hostname "$HOSTNAME" \
   --arg message "$MESSAGE" \
   '. + {
         "event_type":"test_result",
         "client_payload":
         {
         "passed":false,
-        "hostname": $hostname,
         "message": $message
        }}'
 )"

@@ -15,12 +15,3 @@ jobs:
       - env:
           MESSAGE: ${{ github.event.client_payload.message }}
         run: echo $MESSAGE
-
-  echo_json_job:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Dump json
-        run: echo "$JSON_DATA"
-        shell: bash
-        env:
-          JSON_DATA: ${{ toJson(repository_dispatch) }}
