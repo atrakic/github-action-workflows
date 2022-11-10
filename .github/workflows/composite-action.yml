@@ -1,4 +1,4 @@
-name: composite_hello
+name: composite-action
 
 on:
   workflow_dispatch:
@@ -15,3 +15,7 @@ jobs:
           who-to-greet: ${{ github.repository_owner }}
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
+
+  gh-debug:
+    if: github.ref != 'refs/heads/main'
+    uses: ./.github/workflows/gh-debug.yml

@@ -1,0 +1,25 @@
+name: Validate PR
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+
+jobs:
+  validate-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Validate PR
+        run: scripts/validate-pr.sh
+
+  gh-debug:
+    #if: github.ref != 'refs/heads/main'
+    uses: ./.github/workflows/gh-debug.yml
