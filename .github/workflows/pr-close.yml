@@ -1,5 +1,5 @@
-# https://raw.githubusercontent.com/brennerm/github-actions-pr-close-showcase/master/.github/workflows/pr-close.yml
 name: Close Pull Request
+
 # only trigger on pull request closed events
 on:
   pull_request:
@@ -20,3 +20,4 @@ jobs:
     steps:
     - run: |
         echo PR #${{ github.event.number }} has been closed without being merged
+# https://raw.githubusercontent.com/brennerm/github-actions-pr-close-showcase/master/.github/workflows/pr-close.yml
