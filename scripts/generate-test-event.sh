@@ -12,11 +12,12 @@ curl \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer ${TOKEN}" \
   https://api.github.com/repos/"${OWNER}"/"${REPO}"/dispatches \
-  -d '{
-    "event_type":"test_result",
-    "client_payload":
+  -d "{
+    'event_type':'test_result',
+    'client_payload':
       {
-        "passed":false,
-        "message":"Error: timeout"
+        'passed':false,
+        'hostname':'$(hostname)',
+        'message': 'Error: $RANDOM timeout'
       }
-    }'
+    }"
