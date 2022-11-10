@@ -16,5 +16,11 @@ jobs:
           MESSAGE: ${{ github.event.client_payload.message }}
         run: echo $MESSAGE
 
-  gh-debug:
-    uses: ./.github/workflows/gh-debug.yml
+  echo_repository_dispatch_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump github context
+        run: echo "$GITHUB_CONTEXT"
+        shell: bash
+        env:
+          GITHUB_CONTEXT: ${{ toJson(repository_dispatch) }}
