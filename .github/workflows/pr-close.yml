@@ -16,7 +16,6 @@ jobs:
       steps:
         - run: |
             echo "PR ${{ github.event.number }} has been merged"
-
   close_job:
     # this job will only run if the PR has been closed without being merged
     if: github.event.pull_request.merged == false
@@ -24,6 +23,5 @@ jobs:
     steps:
       - run: |
           echo "PR ${{ github.event.number }} has been closed without being merged"
-
   gh-debug:
     uses: ./.github/workflows/gh-debug.yml
