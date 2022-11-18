@@ -1,12 +1,12 @@
 # Example how to share static vars between jobs
 name: common-env
 
-#on: [ push ]
 on:
   workflow_dispatch:
 
 jobs:
   common-job:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
