@@ -1,0 +1,18 @@
+# Example how to share static vars between jobs
+name: common-env
+
+#on: [ push ]
+on:
+  workflow_dispatch:
+
+jobs:
+  common-job:
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set common environment variables
+        id: common
+        run: cat ./.github/.env >> $GITHUB_ENV
+
+      - name: Fetch env var
+        run: echo "The foo is ${{ env.foo }}"
