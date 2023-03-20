@@ -3,13 +3,6 @@ name: Docker Build AWS ECR
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
-    paths-ignore:
-      - 'README.md'
-  pull_request:
-    paths-ignore:
-      - 'README.md'
 
 jobs:
   call-ecr-docker-build:
