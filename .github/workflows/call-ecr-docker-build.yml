@@ -7,7 +7,7 @@ on:
 jobs:
   call-ecr-docker-build:
     name: Call Docker Build
-    uses: atrakic/github-actions-workflows/.github/workflows/reusable-ecr-build.yaml@feature/reusable-workflow
+    uses: atrakic/github-actions-workflows/.github/workflows/reusable-ecr-docker-build.yaml@feature/reusable-workflow
 
     permissions:
       contents: read
