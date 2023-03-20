@@ -1,0 +1,34 @@
+name: Docker Build AWS ECR
+# template source: https://github.com/atrakic/github-actions-workflows/blob/main/reusable-workflow-templates/call-ecr-docker-build.yml
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+  pull_request:
+    paths-ignore:
+      - 'README.md'
+
+jobs:
+  call-ecr-docker-build:
+    name: Call Docker Build
+    uses: atrakic/github-actions-workflows/.github/workflows/reusable-ecr-docker-build.yaml@main
+
+    permissions:
+      contents: read
+
+    secrets:
+      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    with:
+
+      ### if image should be pushed to ECR
+      # ecr-enable: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
+
+      ### path to where docker should copy files into image
+      ### defaults to root of repository (.)
+      # context: .
