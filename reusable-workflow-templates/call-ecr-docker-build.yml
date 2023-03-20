@@ -1,6 +1,7 @@
 name: Docker Build AWS ECR
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -25,9 +26,8 @@ jobs:
 
     with:
 
-      ### REQUIRED
       ### if docker to push.
-      ecr-enable: false
+      #ecr-enable: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push' }}
 
       ### path to where docker should copy files into image
       ### defaults to root of repository (.)
