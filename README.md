@@ -1,6 +1,13 @@
 # github-action-workflows
 This repository holds my collection for testing different GitHub Actions workflows.
 
+
+### Reusable workflow
+[![Docker Build AWS ECR](https://github.com/atrakic/github-action-workflows/actions/workflows/call-ecr-docker-build.yml/badge.svg)](https://github.com/atrakic/github-action-workflows/actions/workflows/call-ecr-docker-build.yml)
+
+Build docker image and push to AWS ECR).
+The workflow is located in [.github/workflows/call-ecr-docker-build.yml.yml](.github/workflows/call-ecr-docker-build.yml.yml).
+
 ### Multistage CI CD
 [![CI + CD](https://github.com/atrakic/github-action-workflows/actions/workflows/deploy-to-env.yml/badge.svg)](https://github.com/atrakic/github-action-workflows/actions/workflows/deploy-to-env.yml)
 
