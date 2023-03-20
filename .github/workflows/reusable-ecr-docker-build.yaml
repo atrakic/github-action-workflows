@@ -52,7 +52,7 @@ jobs:
   build-and-push:
     name: AWS ECR Build and push
     runs-on: ubuntu-latest
-    if: inputs.ecr-enable
+    #if: inputs.ecr-enable
 
     steps:
       - name: Checkout
