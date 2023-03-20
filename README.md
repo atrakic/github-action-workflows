@@ -1,6 +1,12 @@
 # github-action-workflows
 This repository holds my collection for testing different GitHub Actions workflows.
 
+### Multistage CI CD
+[![CI + CD](https://github.com/atrakic/github-action-workflows/actions/workflows/deploy-to-env.yml/badge.svg)](https://github.com/atrakic/github-action-workflows/actions/workflows/deploy-to-env.yml)
+
+Build and deploy a single build to multiple stages (environments).
+The workflow is located in [.github/workflows/deploy-to-env.yml](.github/workflows/deploy-to-env.yml).
+
 ### Close PR
 [![close-pr](https://github.com/atrakic/github-action-workflows/actions/workflows/pr-close.yml/badge.svg)](https://github.com/atrakic/github-action-workflows/actions/workflows/pr-close.yml)
 
