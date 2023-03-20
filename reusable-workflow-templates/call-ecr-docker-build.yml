@@ -1,4 +1,3 @@
----
 name: Docker Build AWS ECR
 
 on:
@@ -13,10 +12,8 @@ on:
 
 jobs:
   call-ecr-docker-build:
-
     name: Call Docker Build
-
-    uses: atrakic/github-actions-workflows/reusable-workflow-aws-ecr-push/build.yaml@feature/reusable-workflow
+    uses: atrakic/github-actions-workflows/.github/workflows/reusable-ecr-build.yaml@feature/reusable-workflow
 
     permissions:
       contents: read
@@ -29,7 +26,7 @@ jobs:
     with:
 
       ### REQUIRED
-      ### tell docker where to push.
+      ### if docker to push.
       ecr-enable: false
 
       ### path to where docker should copy files into image
