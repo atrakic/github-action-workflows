@@ -1,11 +1,11 @@
 # https://docs.github.com/en/rest/repos/repos#create-a-repository-dispatch-event
-# Note: This event will only trigger a workflow run if the workflow file is on the default branch.
+# This event will only trigger a workflow run if the workflow file is on the default branch.
 
 name: Failure webhook
 
 on:
   repository_dispatch:
-    types: [test_result] # limited to 100 characters
+    types: [test_result]  # limited to 100 characters
 
 jobs:
   run_if_failure:
@@ -15,3 +15,7 @@ jobs:
       - env:
           MESSAGE: ${{ github.event.client_payload.message }}
         run: echo $MESSAGE
+      - name: Setup tmate session
+        # if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
+        timeout-minutes: 15
