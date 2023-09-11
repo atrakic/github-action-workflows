@@ -7,7 +7,7 @@ jobs:
   trigger-curl-job:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Trigger a webhook event
         run: scripts/generate-test-event.sh ${{ secrets.GITHUB_TOKEN }} ${{ github.repository_owner }} github-action-workflows
