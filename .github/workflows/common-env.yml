@@ -1,5 +1,5 @@
 # Example how to share static vars between jobs
-name: common-env
+name: Common env var
 
 on:
   workflow_dispatch:

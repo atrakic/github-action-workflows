@@ -1,5 +1,7 @@
 # github-action-workflows
-This repository holds my collection for testing different GitHub Actions workflows.
+This repository holds my collection for testing GitHub Actions workflows.
+
+[![license](https://img.shields.io/github/license/atrakic/github-action-workflows.svg)](https://github.com/atrakic/github-action-workflows/blob/main/LICENSE)
 
 
 ### Reusable workflow

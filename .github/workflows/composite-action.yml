@@ -1,4 +1,5 @@
-name: composite-action
+# https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+name: Composite
 
 on:
   workflow_dispatch:
@@ -7,14 +8,14 @@ on:
 jobs:
   composite_job:
     runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./composite-action/hello
-        id: foo
+        id: hello
         with:
           who-to-greet: ${{ github.repository_owner }}
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
-        shell: bash
+      - run: echo random-number ${{ steps.hello.outputs.random-number }}
 
   gh-debug:
     if: github.ref != 'refs/heads/main'
