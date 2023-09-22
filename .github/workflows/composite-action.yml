@@ -2,6 +2,7 @@
 name: Composite
 
 on:
+  # manually trigger
   workflow_dispatch:
   push:
 
