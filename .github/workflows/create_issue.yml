@@ -9,7 +9,7 @@ jobs:
   create_issue:
     runs-on: ubuntu-latest
     permissions:
-      issues: write 
+      issues: write
     steps:
       - name: Create issue using REST API
         run: |

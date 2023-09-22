@@ -1,21 +1,21 @@
-# Reusable workflow
 name: Build and deploy to AWS ECR
 
 on:
+  # Reusable workflow
   workflow_call:
     inputs:
       ecr-enable:
-        description: "Build and push to ECR"
+        description: "Build and push to ECR?"
         required: false
-        default: false
+        default: true
         type: boolean
       context:
-        description: "Docker context (path) to start build from"
+        description: "Docker context path to start build from? (.)"
         required: false
         type: string
         default: .
       aws_region:
-        description: "What AWS region to use"
+        description: "What AWS region to use (eu-west-1)"
         required: false
         type: string
         default: eu-west-1
@@ -26,18 +26,18 @@ on:
         default: |
           ${{ github.repository }}
       image_tag:
-        description: "Tags for the container"
+        description: "Tags for the container (SHA)"
         required: false
         type: string
         default: |
           ${{ github.sha }}
-
+    # https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html
     secrets:
       aws-access-key-id:
-        description: Docker Hub username
+        description: AWS secret id
         required: true
       aws-secret-access-key:
-        description: Docker Hub token
+        description: AWS secret key
         required: true
 
     outputs:
@@ -52,26 +52,24 @@ jobs:
   build-and-push:
     name: AWS ECR Build and push
     runs-on: ubuntu-latest
+    if: ${{ github.event.inputs.ecr-enable }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Configure AWS credentials
-        if: inputs.ecr-enable
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.aws-access-key-id }}
-          aws-secret-access-key: ${{ secrets.aws-secret-access-key }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ inputs.aws_region }}
 
       - name: Login to Amazon ECR
-        if: inputs.ecr-enable
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Build, tag, and push image to Amazon ECR
-        if: inputs.ecr-enable
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
