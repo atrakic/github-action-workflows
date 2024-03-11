@@ -1,0 +1,42 @@
+name: 'Helm values image image tag updater'
+description: 'Updates image tag values in helm package'
+inputs:
+  repo:
+    description: 'Github repo, ex. github.com/atrakic/helm-charts.git'
+    required: true
+  gh_token:
+    description: >
+      Github PAT token to use.
+      See https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens.
+    required: true
+  app_name:
+    description: 'The name of application with a helm package'
+    required: true
+  image_tag:
+    description: 'Image tag to use'
+    required: true
+  commiter:
+    description: >
+      The committer name and email address in the format `Display Name <email@address.com>`.
+      Defaults to the GitHub Actions bot user.
+    default: 'github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>'
+  author:
+    description: >
+      The author name and email address in the format `Display Name <email@address.com>`.
+      Defaults to the user who triggered the workflow run.
+    default: '${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>'
+
+outputs:
+  values:
+    description: 'Helm values'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    - GH_TOKEN: ${{ inputs.gh_token }}
+    - GH_REPO: ${{ inputs.repo }}
+    - APP_NAME: ${{ inputs.app_name }}
+    - IMAGE_TAG: ${{ inputs.image_tag }}
+    - GH_EMAIL: ${{ inputs.commiter }}
+    - GH_NAME: ${{ inputs.author }} 
