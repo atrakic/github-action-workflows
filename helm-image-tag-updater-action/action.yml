@@ -39,4 +39,4 @@ runs:
     - APP_NAME: ${{ inputs.app_name }}
     - IMAGE_TAG: ${{ inputs.image_tag }}
     - GH_EMAIL: ${{ inputs.commiter }}
-    - GH_NAME: ${{ inputs.author }} 
+    - GH_NAME: ${{ inputs.author }}
