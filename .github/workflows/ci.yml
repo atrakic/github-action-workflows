@@ -12,16 +12,4 @@ jobs:
       - name: yaml-lint
         uses: ibiqlik/action-yamllint@v3
         with:
-          config_data: |
-            extends: default
-            rules:
-              document-start: disable
-              line-length: disable
-              new-line-at-end-of-file:
-                level: warning
-              new-lines:
-                level: warning
-              trailing-spaces:
-                level: warning
-              indentation:
-                level: warning
+          config_file: .yamllint.yml
