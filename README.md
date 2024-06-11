@@ -2,6 +2,7 @@
 This repository holds my collection for testing GitHub Actions workflows.
 
 [![license](https://img.shields.io/github/license/atrakic/github-action-workflows.svg)](https://github.com/atrakic/github-action-workflows/blob/main/LICENSE)
+[![ci](https://github.com/atrakic/github-action-workflows/actions/workflows/ci.yml/badge.svg)](https://github.com/atrakic/github-action-workflows/actions/workflows/ci.yml)
 
 
 ### Reusable workflow
