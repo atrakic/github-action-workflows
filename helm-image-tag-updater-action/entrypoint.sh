@@ -30,3 +30,6 @@ git push
 
 values=$(cat "$APP_DIRECTORY/values.yaml")
 echo "values=$values" >> "$GITHUB_OUTPUT"
+
+# cleanup
+rm -rf "${GIT_REPO}"
