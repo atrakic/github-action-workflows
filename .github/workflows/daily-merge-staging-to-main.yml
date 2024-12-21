@@ -1,0 +1,37 @@
+name: Merge Staging to Main
+
+on:
+  push:
+    branches:
+      - staging
+  workflow_dispatch:
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Fetch all branches
+        run: git fetch --all
+
+      - name: Push staging to temporary merge branch
+        run: |
+          git checkout staging
+          git push --force origin staging:temp-merge-staging-to-main --no-verify
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: temp-merge-staging-to-main
+          base: main
+          title: "Daily Merge Staging into Main"
+          body: "This is an automated PR to merge changes from staging into main."
