@@ -12,7 +12,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+
+      - name: Make changes to pull request
+        run: date +%s > report.txt
 
       - name: Configure Git
         run: |
@@ -28,10 +31,13 @@ jobs:
           git push --force origin staging:temp-merge-staging-to-main --no-verify
 
       - name: Create pull request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: temp-merge-staging-to-main
           base: main
           title: "Daily Merge Staging into Main"
           body: "This is an automated PR to merge changes from staging into main."
+          labels: |
+            automated pr
+          draft: false
