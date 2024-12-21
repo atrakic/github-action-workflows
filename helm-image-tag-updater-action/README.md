@@ -29,12 +29,13 @@ The contents of values.yaml file.
 ## Example usage
 
 ```
-uses: atrakic/github-actions/helm-image-tag-updater-action@main
-with:
-  repo: 'github.com/atrakic/helm-charts.git'
-  token: ${{ secrets.GIT_TOKEN }}
-  app_name: 'foo'
-  image_tag: 'v1.12'
-  commiter: '${{ github.actor }}'
-  author: '${{ github.actor }}@users.noreply.github.com'
+- name: Update helm image tag
+  uses: atrakic/github-actions/helm-image-tag-updater-action@main
+  with:
+    repo: 'github.com/atrakic/helm-charts.git'
+    token: ${{ secrets.GIT_TOKEN }}
+    app_name: 'foo'
+    image_tag: 'v1.12'
+    commiter: '${{ github.actor }}'
+    author: '${{ github.actor }}@users.noreply.github.com'
 ```

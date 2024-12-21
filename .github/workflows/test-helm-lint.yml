@@ -1,0 +1,20 @@
+name: test-helm-lint
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/test-helm-lint.yml'
+      - 'helm-lint-action/**'
+
+jobs:
+  test-helm-lint:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Helm Lint
+        uses: ./helm-lint-action
