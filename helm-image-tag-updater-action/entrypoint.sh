@@ -21,12 +21,12 @@ sed -i -e "s/imageTag: .*/imageTag: $IMAGE_TAG/g" "$APP_DIRECTORY/values.yaml"
 git config --global user.email "${GH_EMAIL:-no-reply@users.noreply.github.com}"
 git config --global user.name "${GH_NAME:-GitOps}"
 
+# Workarround for github envs
+[[ -n "${GITHUB_ACTIONS}" ]] && git config --global --add safe.directory /github/workspace
+
 git add .
 git commit -m "Updated $APP_NAME to version: $IMAGE_TAG"
 git push
-
-# Workarround for github envs
-[[ -n "${GITHUB_ACTIONS}" ]] && git config --global --add safe.directory /github/workspace
 
 values=$(cat "$APP_DIRECTORY/values.yaml")
 echo "values=$values" >> "$GITHUB_OUTPUT"
